@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Muhammad Zubair — Therapeutic Ultrasound & Bioengineering</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0D2B45;
+  --teal:#1A7A6E;
+  --teal-mid:#2AA898;
+  --teal-light:#E8F5F3;
+  --sand:#F7F5F0;
+  --text:#1A1A1A;
+  --muted:#5A6472;
+  --border:#E2E0DA;
+  --white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);font-size:16px;line-height:1.7}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-logo{font-family:'Lora',serif;font-size:17px;color:var(--navy);font-weight:600}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:400;letter-spacing:0.02em;transition:color 0.2s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta{background:var(--teal);color:#fff !important;padding:7px 18px;border-radius:6px;font-weight:500 !important;transition:background 0.2s !important}
+.nav-cta:hover{background:var(--navy) !important;color:#fff !important}
+
+/* HERO */
+.hero{padding:120px 2rem 80px;background:linear-gradient(150deg,#EDF7F5 0%,#F4F2ED 55%,#fff 100%);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;top:0;right:0;width:45%;height:100%;background:radial-gradient(ellipse at 80% 40%,rgba(26,122,110,0.06) 0%,transparent 65%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 200px;gap:3rem;align-items:center}
+.hero-eyebrow{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;font-weight:500}
+.hero h1{font-family:'Lora',serif;font-size:clamp(2rem,4vw,3rem);color:var(--navy);line-height:1.18;margin-bottom:1rem;font-weight:600}
+.hero-subtitle{font-size:17px;color:var(--muted);margin-bottom:1.75rem;font-weight:300;max-width:600px;line-height:1.75}
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:2rem}
+.tag{background:var(--teal-light);color:var(--teal);font-size:12px;padding:4px 12px;border-radius:20px;font-weight:500;letter-spacing:0.02em}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--teal);color:#fff;padding:11px 26px;border-radius:7px;text-decoration:none;font-size:14px;font-weight:500;transition:background 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--navy)}
+.btn-secondary{background:transparent;color:var(--navy);padding:10px 24px;border-radius:7px;text-decoration:none;font-size:14px;font-weight:500;border:1.5px solid var(--navy);transition:all 0.2s;display:inline-block}
+.btn-secondary:hover{background:var(--navy);color:#fff}
+.hero-avatar{width:170px;height:170px;border-radius:50%;background:linear-gradient(135deg,var(--teal-mid),var(--navy));display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:48px;color:#fff;font-weight:600;flex-shrink:0;border:5px solid #fff;box-shadow:0 8px 40px rgba(13,43,69,0.18)}
+.hero-links{display:flex;gap:12px;margin-top:1.5rem;flex-wrap:wrap}
+.hero-link{font-size:13px;color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-light);padding-bottom:1px;transition:border-color 0.2s}
+.hero-link:hover{border-color:var(--teal)}
+
+/* SECTIONS */
+section{padding:80px 2rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.4rem;font-weight:500}
+.section-title{font-family:'Lora',serif;font-size:clamp(1.6rem,3vw,2.1rem);color:var(--navy);margin-bottom:0.9rem;line-height:1.25}
+.section-divider{width:44px;height:3px;background:var(--teal-mid);margin-bottom:2.5rem;border-radius:2px}
+
+/* ABOUT */
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:4rem;align-items:start}
+.about-body{font-size:16px;color:var(--muted);line-height:1.85}
+.about-body p{margin-bottom:1rem}
+.about-body strong{color:var(--text);font-weight:500}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat-card{background:var(--sand);border-radius:10px;padding:20px 18px;border-left:3px solid var(--teal-mid)}
+.stat-num{font-family:'Lora',serif;font-size:2.1rem;color:var(--navy);font-weight:600;line-height:1}
+.stat-label{font-size:12px;color:var(--muted);margin-top:5px;letter-spacing:0.02em;line-height:1.4}
+.positions{margin-top:2.5rem}
+.positions h3{font-family:'Lora',serif;font-size:17px;color:var(--navy);margin-bottom:1rem}
+.position-item{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.position-item:last-child{border-bottom:none}
+.pos-dot{width:10px;height:10px;border-radius:50%;background:var(--teal-mid);flex-shrink:0;margin-top:6px}
+.pos-role{font-size:15px;font-weight:500;color:var(--navy)}
+.pos-place{font-size:13px;color:var(--muted)}
+.pos-years{font-size:12px;color:var(--teal);font-weight:500;margin-top:2px}
+
+/* RESEARCH */
+#research{background:var(--sand)}
+.research-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.research-card{background:var(--white);border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column}
+.research-card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(13,43,69,0.1)}
+.rc-top{padding:20px 20px 0;display:flex;justify-content:space-between;align-items:flex-start}
+.rc-icon{width:42px;height:42px;border-radius:8px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rc-icon svg{width:21px;height:21px;stroke:var(--teal);fill:none;stroke-width:1.8}
+.rc-status{font-size:11px;font-weight:500;letter-spacing:0.05em;padding:3px 10px;border-radius:12px}
+.status-active{background:#E6F7F5;color:#0F6E56}
+.status-ongoing{background:#EEF4FB;color:#185FA5}
+.status-complete{background:#F1EFE8;color:#5F5E5A}
+.rc-body{padding:14px 20px 16px;flex:1}
+.rc-body h3{font-family:'Lora',serif;font-size:16px;color:var(--navy);margin-bottom:8px;line-height:1.35}
+.rc-body p{font-size:14px;color:var(--muted);line-height:1.65}
+.rc-footer{padding:0 20px 18px;display:flex;gap:6px;flex-wrap:wrap}
+.method-tag{font-size:11px;padding:3px 10px;border-radius:12px;background:var(--teal-light);color:var(--teal);font-weight:500}
+
+/* PUBLICATIONS */
+#publications{background:var(--white)}
+.pub-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:12px}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{font-size:13px;padding:6px 16px;border-radius:20px;border:1px solid var(--border);background:var(--white);color:var(--muted);cursor:pointer;transition:all 0.15s;font-family:'DM Sans',sans-serif}
+.filter-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.pub-count{font-size:13px;color:var(--muted)}
+.pub-list{display:flex;flex-direction:column}
+.pub-item{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--border);align-items:start}
+.pub-item:first-child{border-top:1px solid var(--border)}
+.pub-year{font-size:13px;font-weight:500;color:var(--teal);padding-top:3px}
+.pub-title{font-family:'Lora',serif;font-size:15px;color:var(--navy);margin-bottom:4px;line-height:1.4;font-weight:600}
+.pub-authors{font-size:13px;color:var(--muted);margin-bottom:3px}
+.pub-journal{font-size:13px;color:var(--muted);font-style:italic}
+.pub-badges{display:flex;gap:6px;margin-top:9px;flex-wrap:wrap}
+.pub-badge{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:500}
+.badge-award{background:#FEF3C7;color:#92400E}
+.badge-journal{background:var(--teal-light);color:var(--teal)}
+.badge-conf{background:#EEF4FB;color:#185FA5}
+.badge-doi{background:#F1EFE8;color:#3B6D11}
+
+/* SKILLS */
+#skills{background:var(--sand)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.skill-card{background:var(--white);border-radius:10px;padding:22px;border:1px solid var(--border)}
+.skill-card h3{font-size:14px;font-weight:500;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:7px}
+.skill-tag{font-size:12px;padding:4px 11px;border-radius:6px;background:var(--sand);color:var(--muted);border:1px solid var(--border)}
+
+/* AWARDS */
+#awards{background:var(--white)}
+.awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.award-item{display:flex;gap:14px;align-items:flex-start;padding:18px;background:var(--sand);border-radius:10px;border-left:3px solid var(--teal-mid)}
+.award-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.award-title{font-size:14px;font-weight:500;color:var(--navy);line-height:1.3}
+.award-org{font-size:12px;color:var(--muted);margin-top:3px}
+
+/* CONTACT */
+#contact{background:var(--sand)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:18px}
+.contact-item{display:flex;align-items:center;gap:14px}
+.contact-icon{width:40px;height:40px;border-radius:8px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon svg{width:18px;height:18px;stroke:var(--teal);fill:none;stroke-width:2}
+.contact-label{font-size:11px;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase}
+.contact-value{font-size:15px;color:var(--navy);font-weight:500}
+.contact-form{background:var(--white);border-radius:12px;padding:28px;border:1px solid var(--border)}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:500}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 14px;border-radius:7px;border:1px solid var(--border);font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);transition:border 0.2s;appearance:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--teal-mid)}
+.form-group textarea{height:90px;resize:vertical}
+.collab-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem}
+.collab-tag{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:8px 14px;font-size:13px;color:var(--muted);cursor:pointer;transition:all 0.15s}
+.collab-tag:hover,.collab-tag.selected{background:var(--teal-light);color:var(--teal);border-color:var(--teal-mid)}
+
+/* FOOTER */
+footer{background:var(--navy);padding:44px 2rem 32px}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem}
+.footer-name{font-family:'Lora',serif;color:#fff;font-size:17px;margin-bottom:4px}
+.footer-sub{font-size:13px;color:rgba(255,255,255,0.5)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:13px;transition:color 0.2s}
+.footer-links a:hover{color:#fff}
+
+@media(max-width:768px){
+  .hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-avatar{display:none}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">Dr. M. Zubair</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">PhD Bioengineering · Imperial College London</p>
+      <h1>Muhammad Zubair, PhD</h1>
+      <p class="hero-subtitle">Principal Ultrasound Engineer & Researcher specializing in the design, modeling, and experimental validation of therapeutic ultrasound systems for neuromodulation, hyperthermia, and minimally invasive therapies.</p>
+      <div class="hero-tags">
+        <span class="tag">Therapeutic Ultrasound</span>
+        <span class="tag">Focused Ultrasound</span>
+        <span class="tag">Neuromodulation</span>
+        <span class="tag">HIFU</span>
+        <span class="tag">Phased Arrays</span>
+        <span class="tag">Acoustic Modeling</span>
+        <span class="tag">MR-guided Therapy</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#research" class="btn-primary">View Research</a>
+        <a href="#publications" class="btn-secondary">Publications</a>
+        <a href="#contact" class="btn-secondary">Collaborate</a>
+      </div>
+      <div class="hero-links">
+        <a href="https://scholar.google.com/citations?hl=en&user=GE1aJ_kAAAAJ" target="_blank" class="hero-link">Google Scholar</a>
+        <a href="#publications" class="hero-link">11 Journal Articles</a>
+        <a href="#awards" class="hero-link">1 Patent (US 20250360345 A1)</a>
+      </div>
+    </div>
+    <div class="hero-avatar">MZ</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div>
+        <div class="about-body">
+          <p>I am a researcher and engineer in <strong>therapeutic ultrasound</strong>, with over a decade of experience spanning academia and industry. My work integrates transducer development, acoustic and biothermal modeling, and translational validation to advance safe, effective non-invasive clinical applications.</p>
+          <p>After completing my PhD at <strong>Imperial College London</strong>, I held postdoctoral positions at <strong>UCSF</strong> (Thermal Therapy Research Group, with Prof. Chris Diederich) and <strong>Stanford University</strong> (Neurology & Neurological Sciences, with Prof. Lawrence Steinman), focusing on deployable ultrasound applicators for cancer therapy and focused ultrasound neuromodulation for multiple sclerosis.</p>
+          <p>I currently serve as <strong>Principal Ultrasound Engineer at OpenWater Health Inc.</strong>, where I lead the design of low-frequency phased-array therapeutic ultrasound platforms and drive FDA regulatory development including 510(k) contributions.</p>
+          <p>I am open to <strong>research collaborations, consulting engagements, faculty positions</strong>, and industry partnerships in therapeutic ultrasound and bioengineering.</p>
+        </div>
+        <div class="positions">
+          <h3>Career Highlights</h3>
+          <div class="position-item">
+            <div class="pos-dot"></div>
+            <div>
+              <div class="pos-role">Principal Ultrasound Engineer</div>
+              <div class="pos-place">OpenWater Health Inc.</div>
+              <div class="pos-years">2024 – Present</div>
+            </div>
+          </div>
+          <div class="position-item">
+            <div class="pos-dot"></div>
+            <div>
+              <div class="pos-role">Postdoctoral Researcher</div>
+              <div class="pos-place">Stanford University — Neurology & Neurological Sciences</div>
+              <div class="pos-years">2023 – 2024</div>
+            </div>
+          </div>
+          <div class="position-item">
+            <div class="pos-dot"></div>
+            <div>
+              <div class="pos-role">Postdoctoral Scholar</div>
+              <div class="pos-place">UCSF — Thermal Therapy Research Group, Dept. of Radiation Oncology</div>
+              <div class="pos-years">2019 – 2023</div>
+            </div>
+          </div>
+          <div class="position-item">
+            <div class="pos-dot"></div>
+            <div>
+              <div class="pos-role">PhD Researcher</div>
+              <div class="pos-place">Imperial College London — Dept. of Bioengineering</div>
+              <div class="pos-years">2015 – 2019</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-num">11+</div>
+            <div class="stat-label">Peer-reviewed journal articles</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">25+</div>
+            <div class="stat-label">Conference presentations</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Years of research experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">4</div>
+            <div class="stat-label">NIH & competitive grants contributed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">1</div>
+            <div class="stat-label">US Patent granted</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Journals reviewed as ad hoc reviewer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <p class="section-label">Projects</p>
+    <h2 class="section-title">Research Areas</h2>
+    <div class="section-divider"></div>
+    <div class="research-grid">
+
+      <div class="research-card">
+        <div class="rc-top">
+          <div class="rc-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <span class="rc-status status-active">Active</span>
+        </div>
+        <div class="rc-body">
+          <h3>Low-Frequency Phased-Array Neuromodulation</h3>
+          <p>Design and optimization of 64–128 element phased-array systems (~150 kHz and 400 kHz) achieving focal pressures &gt;2 MPa for reproducible focused ultrasound neuromodulation and bioeffects studies.</p>
+        </div>
+        <div class="rc-footer">
+          <span class="method-tag">Phased Arrays</span><span class="method-tag">Neuromodulation</span><span class="method-tag">V&V Frameworks</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="rc-top">
+          <div class="rc-icon">
+            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <span class="rc-status status-complete">Completed</span>
+        </div>
+        <div class="rc-body">
+          <h3>Deployable Catheter-Based Ultrasound Applicators</h3>
+          <p>Developed minimally invasive endoluminal and laparoscopic catheter-based phased-array applicators with expandable reflector balloons for MR-guided tumor ablation, hyperthermia, and pancreatic cancer therapy at UCSF (NIH R01 & R21).</p>
+        </div>
+        <div class="rc-footer">
+          <span class="method-tag">Catheter-Based US</span><span class="method-tag">MR-guided</span><span class="method-tag">Hyperthermia</span><span class="method-tag">NIH R01/R21</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="rc-top">
+          <div class="rc-icon">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <span class="rc-status status-complete">Completed · Stanford</span>
+        </div>
+        <div class="rc-body">
+          <h3>Focused Ultrasound for Multiple Sclerosis</h3>
+          <p>Led interdisciplinary project on FUS neuromodulation for MS in preclinical models at Stanford. Developed spinal cord targeting strategies, acoustic and biothermal modeling pipelines, and experimental–computational workflows linking simulations with in vivo biological outcomes.</p>
+        </div>
+        <div class="rc-footer">
+          <span class="method-tag">FUS</span><span class="method-tag">MS / Spinal Cord</span><span class="method-tag">In vivo</span><span class="method-tag">Treatment Planning</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="rc-top">
+          <div class="rc-icon">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <span class="rc-status status-complete">Completed · Imperial</span>
+        </div>
+        <div class="rc-body">
+          <h3>Dual-Mode Ultrasound Imaging & Therapy with Random Phased Arrays</h3>
+          <p>PhD research at Imperial College London. Designed an integrated imaging-therapy platform using a therapeutic random phased array with Verasonics Vantage, enabling 3D synthetic aperture imaging and transcostal targeted ablation with adaptive beamforming.</p>
+        </div>
+        <div class="rc-footer">
+          <span class="method-tag">Random Phased Arrays</span><span class="method-tag">Synthetic Aperture</span><span class="method-tag">Transcostal</span><span class="method-tag">Verasonics</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="rc-top">
+          <div class="rc-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <span class="rc-status status-ongoing">Consulting</span>
+        </div>
+        <div class="rc-body">
+          <h3>Transducer Design for Neuromodulation & Histotripsy</h3>
+          <p>R&D consulting for Surf Therapeutics and Petal Surgical — custom ultrasound transducer design, simulation-driven optimization within patient-specific anatomical models, and extracorporeal HIFU system development for histotripsy applications.</p>
+        </div>
+        <div class="rc-footer">
+          <span class="method-tag">Transducer Design</span><span class="method-tag">Histotripsy</span><span class="method-tag">Patient-specific Models</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="rc-top">
+          <div class="rc-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="rc-status status-complete">Completed</span>
+        </div>
+        <div class="rc-body">
+          <h3>Ultrasound Hyperthermia Treatment Planning</h3>
+          <p>Designed and validated treatment planning frameworks for ultrasound hyperthermia using ~1–3 MHz clinical systems. Demonstrated volumetric hyperthermia feasibility in head & neck cancer patient-specific models using spherical random phased array transducers.</p>
+        </div>
+        <div class="rc-footer">
+          <span class="method-tag">Hyperthermia</span><span class="method-tag">Treatment Planning</span><span class="method-tag">Head & Neck Cancer</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-inner">
+    <p class="section-label">Scholarly Output</p>
+    <h2 class="section-title">Publications</h2>
+    <div class="section-divider"></div>
+    <div class="pub-controls">
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="filterPubs(this,'all')">All</button>
+        <button class="filter-btn" onclick="filterPubs(this,'journal')">Journal Articles</button>
+        <button class="filter-btn" onclick="filterPubs(this,'conference')">Conference Papers</button>
+        <button class="filter-btn" onclick="filterPubs(this,'patent')">Patents</button>
+      </div>
+      <span class="pub-count" id="pub-count">Showing all publications</span>
+    </div>
+    <div class="pub-list" id="pub-list">
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-year">2025</span>
+        <div>
+          <div class="pub-title">Re: Rezai et al. "Brain injury during focused ultrasound neuromodulation for substance use disorder"</div>
+          <div class="pub-authors"><strong>M. Zubair</strong></div>
+          <div class="pub-journal">Brain Stimulation, Volume 19, Issue 2, 103030</div>
+          <div class="pub-badges"><span class="pub-badge badge-journal">Journal</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-year">2025</span>
+        <div>
+          <div class="pub-title">Delivering Volumetric Hyperthermia to Head and Neck Cancer Patient-Specific Models Using an Ultrasound Spherical Random Phased Array Transducer</div>
+          <div class="pub-authors"><strong>M. Zubair</strong>; I. Uddin; R. Dickinson; C.J. Diederich</div>
+          <div class="pub-journal">Bioengineering 2025, 12, 14</div>
+          <div class="pub-badges"><span class="pub-badge badge-journal">Journal</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-year">2024</span>
+        <div>
+          <div class="pub-title">Treatment Planning Strategies for Interstitial Ultrasound Ablation of Prostate Cancer</div>
+          <div class="pub-authors">P. Gupta; T. Heffter; <strong>M. Zubair</strong>; I. Hsu; E. Burdette; C. Diederich</div>
+          <div class="pub-journal">IEEE Open Journal of Engineering in Medicine and Biology</div>
+          <div class="pub-badges"><span class="pub-badge badge-journal">Journal</span><span class="pub-badge badge-doi">DOI: 10.1109/OJEMB.2024.3397965</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-year">2024</span>
+        <div>
+          <div class="pub-title">End-to-end validation of fiducial tracking accuracy in robotic radiosurgery using MRI-only simulation imaging</div>
+          <div class="pub-authors">K. Singharo; <strong>M. Zubair</strong>; T. Nano; JE. Scholey; M. Descovich</div>
+          <div class="pub-journal">Medical Physics, 2024; 51: 31–41</div>
+          <div class="pub-badges"><span class="pub-badge badge-journal">Journal</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-year">2023</span>
+        <div>
+          <div class="pub-title">An endoluminal cylindrical sectored-ring ultrasound phased-array applicator for minimally-invasive therapeutic ultrasound</div>
+          <div class="pub-authors"><strong>M. Zubair</strong>; MS Adams; CJ Diederich</div>
+          <div class="pub-journal">Medical Physics, 2023; 50: 1–19</div>
+          <div class="pub-badges"><span class="pub-badge badge-journal">Journal</span><span class="pub-badge badge-award">Editor's Choice · Cover Article</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-year">2021</span>
+        <div>
+          <div class="pub-title">Deployable ultrasound applicators for endoluminal delivery of volumetric hyperthermia</div>
+          <div class="pub-authors"><strong>M. Zubair</strong>; M. Adams; C. Diederich</div>
+          <div class="pub-journal">International Journal of Hyperthermia, 2021, 38(1), pp. 1188–1204</div>
+          <div class="pub-badges"><span class="pub-badge badge-journal">Journal</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-year">2021</span>
+        <div>
+          <div class="pub-title">Sonication strategies toward volumetric ultrasound hyperthermia treatment using the ExAblate body MRgFUS system</div>
+          <div class="pub-authors">K. Kim; <strong>M. Zubair</strong>; M. Adams; C. Diederich; E. Ozhinsky</div>
+          <div class="pub-journal">International Journal of Hyperthermia, 2021, 38(1), pp. 1590–1600</div>
+          <div class="pub-badges"><span class="pub-badge badge-journal">Journal</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-year">2021</span>
+        <div>
+          <div class="pub-title">3D Synthetic Aperture Imaging with a Therapeutic Random Phased Array for Transcostal Applications</div>
+          <div class="pub-authors"><strong>M. Zubair</strong>; R. J. Dickinson</div>
+          <div class="pub-journal">Physics in Medicine and Biology, 2021 Feb; 66(3):035024</div>
+          <div class="pub-badges"><span class="pub-badge badge-journal">Journal</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="journal">
+        <span class="pub-year">2021</span>
+        <div>
+          <div class="pub-title">Calculating the effects of the rib cage on the focus quality of a therapeutic spherical random phased array</div>
+          <div class="pub-authors"><strong>M. Zubair</strong>; R. J. Dickinson</div>
+          <div class="pub-journal">Sensors 2021, 21(4), 1211</div>
+          <div class="pub-badges"><span class="pub-badge badge-journal">Journal</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="conference">
+        <span class="pub-year">2022</span>
+        <div>
+          <div class="pub-title">Angle monitoring of directional energy deposition for catheter-based ultrasound thermal therapy using fitted changes in ultrasound backscatter energy imaging</div>
+          <div class="pub-authors">C. Yang; D. Wang; P.D. Jones; C.J. Diederich; P. Gupta; <strong>M. Zubair</strong>; E.C. Burdette</div>
+          <div class="pub-journal">IEEE International Ultrasonics Symposium (IUS), Venice, Italy, 2022</div>
+          <div class="pub-badges"><span class="pub-badge badge-conf">Conference</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="conference">
+        <span class="pub-year">2021</span>
+        <div>
+          <div class="pub-title">An Endoscopic Concentric Ring Sector-Vortex Ultrasound Phased Array Applicator for Pancreatic Tumor Ablation</div>
+          <div class="pub-authors"><strong>M. Zubair</strong>; M.S. Adams; C.J. Diederich</div>
+          <div class="pub-journal">IEEE International Ultrasonics Symposium (IUS), 2021</div>
+          <div class="pub-badges"><span class="pub-badge badge-conf">Conference</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="conference">
+        <span class="pub-year">2019</span>
+        <div>
+          <div class="pub-title">Simulation of a Modified Multielement Random Phased Array for Image Guidance and Therapy</div>
+          <div class="pub-authors"><strong>M. Zubair</strong>; R.J. Dickinson</div>
+          <div class="pub-journal">IEEE 16th International Symposium on Biomedical Imaging (ISBI 2019)</div>
+          <div class="pub-badges"><span class="pub-badge badge-conf">Conference</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="conference">
+        <span class="pub-year">2018</span>
+        <div>
+          <div class="pub-title">3D Ultrasound Image Guidance and Therapy Through the Rib Cage with a Therapeutic Random Phased Array</div>
+          <div class="pub-authors"><strong>M. Zubair</strong>; S. Harput; R.J. Dickinson</div>
+          <div class="pub-journal">IEEE International Ultrasonics Symposium (IUS), Kobe, Japan, 2018</div>
+          <div class="pub-badges"><span class="pub-badge badge-conf">Conference</span></div>
+        </div>
+      </div>
+
+      <div class="pub-item" data-type="patent">
+        <span class="pub-year">2023</span>
+        <div>
+          <div class="pub-title">Systems and Methods for Ultrasound Neuromodulation of Desired Anatomical Targets</div>
+          <div class="pub-authors"><strong>M. Zubair</strong> et al.</div>
+          <div class="pub-journal">US Patent No. 20250360345 A1</div>
+          <div class="pub-badges"><span class="pub-badge badge-award">US Patent</span></div>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin-top:1.5rem;font-size:13px;color:var(--muted)">Selected publications shown. <a href="https://scholar.google.com/citations?hl=en&user=GE1aJ_kAAAAJ" target="_blank" style="color:var(--teal);text-decoration:none">View full list on Google Scholar →</a></p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <p class="section-label">Expertise</p>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="section-divider"></div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Therapeutic Ultrasound Systems</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Phased Array Design</span>
+          <span class="skill-tag">Catheter-Based Applicators</span>
+          <span class="skill-tag">Extracorporeal HIFU</span>
+          <span class="skill-tag">Acoustic Characterization</span>
+          <span class="skill-tag">Thermal Phantoms</span>
+          <span class="skill-tag">V&V Frameworks</span>
+          <span class="skill-tag">MR & IR Monitoring</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Acoustic Physics & Bioeffects</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">3D Acoustic Modeling</span>
+          <span class="skill-tag">Biothermal Simulation</span>
+          <span class="skill-tag">Beamforming</span>
+          <span class="skill-tag">Cavitation</span>
+          <span class="skill-tag">Nonlinear Acoustics</span>
+          <span class="skill-tag">Sonoporation</span>
+          <span class="skill-tag">Drug Delivery</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Medical Imaging & Signal Processing</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Ultrasound Imaging (B-mode, 3D)</span>
+          <span class="skill-tag">Plane Wave Imaging</span>
+          <span class="skill-tag">Synthetic Aperture</span>
+          <span class="skill-tag">Passive Cavitation Detection</span>
+          <span class="skill-tag">MRI Fundamentals</span>
+          <span class="skill-tag">Image Processing</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Modeling & Software</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">MATLAB</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Sim4Life</span>
+          <span class="skill-tag">COMSOL</span>
+          <span class="skill-tag">k-Wave</span>
+          <span class="skill-tag">Verasonics</span>
+          <span class="skill-tag">Image Segmentation</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Device Engineering & Mechatronics</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">SolidWorks</span>
+          <span class="skill-tag">Onshape (CAD)</span>
+          <span class="skill-tag">3D Printing</span>
+          <span class="skill-tag">Circuit Design</span>
+          <span class="skill-tag">LabVIEW</span>
+          <span class="skill-tag">System Integration</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Regulatory & Translation</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">FDA 510(k)</span>
+          <span class="skill-tag">IEC Standards</span>
+          <span class="skill-tag">Risk Analysis</span>
+          <span class="skill-tag">Preclinical Validation</span>
+          <span class="skill-tag">NIH Grant Development</span>
+          <span class="skill-tag">Clinical Feasibility</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-inner">
+    <p class="section-label">Recognition</p>
+    <h2 class="section-title">Honors & Awards</h2>
+    <div class="section-divider"></div>
+    <div class="awards-grid">
+      <div class="award-item">
+        <div class="award-icon">🏆</div>
+        <div>
+          <div class="award-title">Editor's Choice Award & Front Cover — Medical Physics</div>
+          <div class="award-org">January 2023 Issue</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🎓</div>
+        <div>
+          <div class="award-title">Scholar-in-Training Award</div>
+          <div class="award-org">Society for Thermal Medicine Annual Meeting, 2022</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🥈</div>
+        <div>
+          <div class="award-title">Best Oral Talk, 2nd Prize</div>
+          <div class="award-org">American Association of Physicists in Medicine (AAPM), 2021</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🎤</div>
+        <div>
+          <div class="award-title">Best Oral Talk Finalist</div>
+          <div class="award-org">International Symposium for Therapeutic Ultrasound, 2021</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🏅</div>
+        <div>
+          <div class="award-title">Best Poster Award Finalist</div>
+          <div class="award-org">International Symposium for Therapeutic Ultrasound, 2017</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🌏</div>
+        <div>
+          <div class="award-title">MEXT Research Fellowship</div>
+          <div class="award-org">Japanese Government Research Fellowship, 2014</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🏛️</div>
+        <div>
+          <div class="award-title">Imperial-IsDB Graduate Fellowship</div>
+          <div class="award-org">Imperial College London, 2015</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon">🔬</div>
+        <div>
+          <div class="award-title">Advanced Hackspace Grant (PI)</div>
+          <div class="award-org">Imperial College London — Thermal Imaging for Breast Cancer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Contact & Collaboration</h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--muted);margin-bottom:1.5rem;max-width:600px;font-size:16px">I welcome inquiries about research collaborations, consulting, speaking invitations, and faculty or senior industry positions. Please select your area of interest below.</p>
+    <div class="collab-tags" id="collab-tags">
+      <span class="collab-tag" onclick="selectCollab(this)">Research Collaboration</span>
+      <span class="collab-tag" onclick="selectCollab(this)">Industry Consulting</span>
+      <span class="collab-tag" onclick="selectCollab(this)">Faculty / Academic Position</span>
+      <span class="collab-tag" onclick="selectCollab(this)">Speaking / Invited Talk</span>
+      <span class="collab-tag" onclick="selectCollab(this)">PhD / Postdoc Supervision</span>
+      <span class="collab-tag" onclick="selectCollab(this)">Other Inquiry</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">m.zubair@[institution].edu</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">United States</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Google Scholar</div>
+            <div class="contact-value"><a href="https://scholar.google.com/citations?hl=en&user=GE1aJ_kAAAAJ" target="_blank" style="color:var(--teal);text-decoration:none">View Profile →</a></div>
+          </div>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+          <a href="#" class="btn-primary">Download CV (PDF)</a>
+          <a href="https://scholar.google.com/citations?hl=en&user=GE1aJ_kAAAAJ" target="_blank" class="btn-secondary">Google Scholar</a>
+        </div>
+        <div style="margin-top:2rem;padding:16px;background:var(--white);border-radius:10px;border:1px solid var(--border)">
+          <p style="font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em">Professional Affiliations</p>
+          <p style="font-size:14px;color:var(--text);line-height:1.8">Society for Thermal Medicine (STM)<br>American Association of Physicists in Medicine (AAPM)<br>International Society for Therapeutic Ultrasound (ISTU)</p>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Dr. Jane Smith" id="form-name">
+        </div>
+        <div class="form-group">
+          <label>Institution / Organization</label>
+          <input type="text" placeholder="University / Company" id="form-org">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="jane@institution.edu" id="form-email">
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="Research collaboration inquiry" id="form-subject">
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Please describe your interest or project..." id="form-message"></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;font-size:15px;padding:13px" onclick="submitForm()">Send Message</button>
+        <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:10px">Your message will be sent directly to Dr. Zubair's inbox.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Dr. Muhammad Zubair</div>
+      <div class="footer-sub">Therapeutic Ultrasound & Bioengineering · PhD Imperial College London</div>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+      <a href="https://scholar.google.com/citations?hl=en&user=GE1aJ_kAAAAJ" target="_blank">Scholar</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterPubs(btn, type){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  let count=0;
+  document.querySelectorAll('.pub-item').forEach(item=>{
+    if(type==='all'||item.dataset.type===type){item.style.display='grid';count++;}
+    else{item.style.display='none';}
+  });
+  const labels={'all':'Showing all publications','journal':'Journal articles','conference':'Conference papers','patent':'Patents'};
+  document.getElementById('pub-count').textContent = type==='all'?'Showing all publications':count+' '+labels[type];
+}
+function selectCollab(el){
+  el.classList.toggle('selected');
+  const selected=[...document.querySelectorAll('.collab-tag.selected')].map(t=>t.textContent).join(', ');
+  const subj=document.getElementById('form-subject');
+  if(selected && subj) subj.value=selected;
+}
+function submitForm(){
+  const name=document.getElementById('form-name').value;
+  const email=document.getElementById('form-email').value;
+  if(!name||!email){alert('Please fill in your name and email address.');return;}
+  alert('Thank you, '+name+'! Your message has been sent. Dr. Zubair will be in touch soon.');
+}
+</script>
+</body>
+</html>
